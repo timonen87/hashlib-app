@@ -1,3 +1,5 @@
+import { Button } from "@/shared/ui/button";
+
 export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col  p-8">
@@ -8,6 +10,7 @@ export default async function Home() {
           />
           <CoursesList revalidatePagePath="/" /> */}
       <h1>Hello world</h1>
+      <Button>Удалить</Button>
     </main>
   );
 }
