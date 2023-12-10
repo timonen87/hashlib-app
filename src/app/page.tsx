@@ -1,5 +1,5 @@
-import { CreateProductForm } from "@/features/products-list/page/create-product-form";
-import { ProductsList } from "@/features/products-list/page/products-list";
+import { CreateProductForm } from "@/features/products-list/pub/create-product-form";
+import { ProductsList } from "@/features/products-list/pub/products-list";
 import { Button } from "@/shared/ui/button";
 
 export default async function Home() {
