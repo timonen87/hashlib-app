@@ -8,9 +8,9 @@ describe("product item", () => {
     render(
       <ProductItem
         product={{
-          id: "asdfasd ",
-          description: "fasdf",
-          name: "fas;dklfj",
+          id: "sdfsdfsdgasf",
+          description: "test description test test test test",
+          name: "test name",
         }}
         onDelete={onDelete}
       />
