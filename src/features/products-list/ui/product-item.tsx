@@ -26,9 +26,7 @@ export function ProductItem({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
-          <h1>{product.name}</h1>
-        </CardTitle>
+        <CardTitle>{product.name}</CardTitle>
         <CardDescription>{product.description}</CardDescription>
       </CardHeader>
       <CardFooter>
