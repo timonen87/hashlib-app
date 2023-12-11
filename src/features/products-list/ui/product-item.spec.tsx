@@ -8,12 +8,12 @@ describe("product item", () => {
     render(
       <ProductItem
         product={{
-          id: "sdfsdfsdgasf",
+          id: "smfnaonvrqwmpemrfv",
           description: "test description test test test test",
           name: "test name",
         }}
         onDelete={onDelete}
-      />
+      />,
     );
 
     await userEvent.click(screen.getByText("Удалить"));
