@@ -11,8 +11,6 @@ export default async function Home() {
         className="max-w-[300px] mb-10"
       />
       <ProductsList revalidatePagePath="/" />
-      <h1>Hello world</h1>
-      <Button>Удалить</Button>
     </main>
   );
 }
