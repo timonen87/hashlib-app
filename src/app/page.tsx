@@ -10,6 +10,7 @@ export default async function Home() {
         revalidatePagePath="/"
         className="max-w-[300px] mb-10"
       />
+      <h1 className="text-3xl mb-2">Product list</h1>
       <ProductsList revalidatePagePath="/" />
     </main>
   );
