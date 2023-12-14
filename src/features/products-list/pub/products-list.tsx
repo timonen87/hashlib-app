@@ -13,6 +13,7 @@ export async function ProductsList({
     await productsRepository.deleteProductsElement({ id: productId });
     revalidatePath(revalidatePagePath);
   };
+
   return (
     <div className="flex flex-col gap-3">
       {productList.map((product) => (
