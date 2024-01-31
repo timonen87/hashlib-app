@@ -7,7 +7,7 @@ export default async function Layout({
 }) {
   return (
     <>
-      <AppHeader />
+      <AppHeader variant="public" />
       {children}
     </>
   );
