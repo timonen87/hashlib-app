@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ProductItem } from "./product-item";
+import { PostItem } from "./post-item";
 
 describe("product item", () => {
   it("should call delete callback", async () => {
     const onDelete = jest.fn();
     render(
-      <ProductItem
-        product={{
+      <PostItem
+        post={{
           id: "smfnaonvrqwmpemrfv",
           description: "test description test test test test",
           name: "test name",

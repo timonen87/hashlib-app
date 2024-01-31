@@ -1,14 +1,14 @@
-type ProductListElement = {
+type PostListElement = {
   id: string;
   name: string;
   description: string;
 };
 
-type CreateProductListElementCommand = {
+type CreatePostListElementCommand = {
   name: string;
   description: string;
 };
 
-type DeleteProductsListElementCommand = {
+type DeletePostListElementCommand = {
   id: string;
 };

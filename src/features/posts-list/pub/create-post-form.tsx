@@ -14,16 +14,16 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
-import { createProducntAction } from "../actions";
+import { createPostAction } from "../actions";
 import { Button } from "@/shared/ui/button";
 import { cn } from "@/shared/ui/utils";
 
-const createProductFormSchema = z.object({
+const createPostFormSchema = z.object({
   name: z.string(),
   description: z.string(),
 });
 
-export function CreateProductForm({
+export function CreatePostForm({
   className,
   revalidatePagePath,
 }: {
@@ -32,7 +32,7 @@ export function CreateProductForm({
 }) {
   const [isCreateTransiton, startCreateTransition] = useTransition();
   const form = useForm({
-    resolver: zodResolver(createProductFormSchema),
+    resolver: zodResolver(createPostFormSchema),
     defaultValues: {
       name: "",
       description: "",
@@ -44,7 +44,7 @@ export function CreateProductForm({
       <form
         onSubmit={form.handleSubmit((data) => {
           startCreateTransition(async () => {
-            createProducntAction(data, revalidatePagePath);
+            createPostAction(data, revalidatePagePath);
           });
         })}
         className={cn(className, "space-y-4")}
