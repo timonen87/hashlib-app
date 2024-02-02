@@ -6,6 +6,7 @@ import {
   SheetHeader,
 } from "@/shared/ui/sheet";
 import { Menu } from "lucide-react";
+import { Profile } from "@/widgets/app-header/_ui/profile";
 
 export function Layout({
   logo,
