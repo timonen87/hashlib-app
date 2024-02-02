@@ -4,8 +4,6 @@ import { SessionProvider as NextAuthSessionProvider } from "next-auth/react";
 
 export const useAppSession = useSession;
 
-
-
 export function AppSessionProvider({
   children,
 }: {
