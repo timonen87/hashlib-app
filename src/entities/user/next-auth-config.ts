@@ -8,9 +8,29 @@ import GithubProvider from "next-auth/providers/github";
 import { privateConfig } from "@/shared/config/private";
 import { useSession } from "next-auth/react";
 import { compact } from "lodash-es";
+import { createUserUseCase } from "./_use-cases/create-user";
+
+const prismaAdapter = PrismaAdapter(dbClient);
 
 export const nextAuthConfig: AuthOptions = {
-  adapter: PrismaAdapter(dbClient) as AuthOptions["adapter"],
+  adapter: {
+    ...prismaAdapter,
+    createUser: (user) => {
+      return createUserUseCase.exec(user);
+    },
+  } as AuthOptions["adapter"],
+  callbacks: {
+    session: async ({ session, user }) => {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: user.id,
+          role: user.role,
+        },
+      };
+    },
+  },
   pages: {
     signIn: "/auth/sign-in",
     newUser: "/auth/new-user",

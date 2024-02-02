@@ -8,8 +8,8 @@ export default async function Layout({
 }) {
   return (
     <>
-      <AppHeader variant="auth" />
-      {children}
+      <AppHeader variant="private" />
+      <AuthorizedGuard>{children}</AuthorizedGuard>
     </>
   );
 }
