@@ -1,4 +1,4 @@
-import { getAppSessionServer } from "@/entities/user/get-app-session.server";
+import { getAppSessionServer } from "@/entities/user/session.server";
 import { Separator } from "@/shared/ui/separator";
 import { redirect } from "next/navigation";
 
