@@ -1,4 +1,7 @@
+import { ThemeProvider } from "@/features/theme/theme-provider";
 import { AppHeader } from "@/widgets/app-header/app-header";
+import { LandingContent } from "@/widgets/app-header/landing-content";
+import { LandingHero } from "@/widgets/app-header/landing-hero";
 
 export default async function Layout({
   children,
@@ -7,8 +10,11 @@ export default async function Layout({
 }) {
   return (
     <>
+    <ThemeProvider />
       <AppHeader variant="public" />
-      {children}
+      <LandingHero />
+      <LandingContent />
+      
     </>
   );
 }

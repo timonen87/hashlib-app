@@ -11,12 +11,14 @@ export function AppHeader({
   variant: "auth" | "private" | "public";
 }) {
   const isProfile = variant !== "auth";
+  const isMain = variant !== "public";
+  
   return (
     <Layout
       logo={<Logo />}
       nav={<MainNav />}
       profile={isProfile && <Profile />}
-      actions={<ToggleTheme />}
+      actions={ <ToggleTheme />}
     />
   );
 }

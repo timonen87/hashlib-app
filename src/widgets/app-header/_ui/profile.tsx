@@ -19,8 +19,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
 import { useRole } from "@/entities/user/session";
 import { ProfileAvatar, getProfileDisplayName } from "@/entities/user/profile";
 
+
 export function Profile() {
   const session = useAppSession();
+  
   const { signOut, isPending: isLoadingSignOut } = useSignOut();
 
   if (session.status === "loading") {
