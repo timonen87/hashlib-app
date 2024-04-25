@@ -9,7 +9,9 @@ export default async function Layout({
   return (
     <>
       <AppHeader variant="private" />
+      <div className="container  items-center">
       <AuthorizedGuard>{children}</AuthorizedGuard>
+      </div>
     </>
   );
 }

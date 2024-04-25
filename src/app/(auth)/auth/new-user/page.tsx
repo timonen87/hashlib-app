@@ -1,4 +1,5 @@
 import { getAppSessionServer } from "@/entities/user/session.server";
+import { UpdateProfileForm } from "@/features/update-profile/update-profile-form";
 import { Separator } from "@/shared/ui/separator";
 import { redirect } from "next/navigation";
 
@@ -22,10 +23,10 @@ export default async function NewUserPage({
         </p>
       </div>
       <Separator />
-      {/* <UpdateProfileForm
+      <UpdateProfileForm
         userId={session.user.id}
         callbackUrl={searchParams.callbackUrl}
-      /> */}
+      />
     </main>
   );
 }

@@ -1,17 +1,18 @@
-// import { useUser } from "@clerk/nextjs";
 
+import { ProfileAvatar, getProfileDisplayName } from "@/entities/user/profile";
+import { useAppSession } from "@/entities/user/session";
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
 
 export const UserAvatar = () => {
-  // const { user } = useUser();
+  const session = useAppSession();
+
+  const user = session?.data?.user;
 
   return (
     <Avatar className="h-8 w-8">
-      {/* <AvatarImage src={user?.profileImageUrl} /> */}
+      <ProfileAvatar profile={user} className="w-8 h-8" />
       <AvatarFallback>
-        {/* {user?.firstName?.charAt(0)}
-        {user?.lastName?.charAt(0)} */}
-        Timonen
+        {user?.name?.charAt(0)}
       </AvatarFallback>
     </Avatar>
   );
