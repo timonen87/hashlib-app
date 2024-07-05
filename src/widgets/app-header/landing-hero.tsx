@@ -39,7 +39,7 @@ export const LandingHero = () => {
         {/* </Link> */}
       </div>
       <div className="text-zinc-400 text-xs md:text-sm font-normal">
-      Кредитная карта не требуется.
+      Кредитная карта не требуется, это бесплатно 
       </div>
     </div>
   );
