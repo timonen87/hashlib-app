@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { postRepository } from "../posts.repository";
 import { PostItem } from "../ui/post-item";
+import { useState } from "react";
 export async function PostsList({
   revalidatePagePath,
 }: {

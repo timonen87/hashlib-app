@@ -7,7 +7,7 @@ export function MainNav() {
         className="transition-colors hover:text-foreground/80 text-foreground/60"
         href="/chat"
       >
-        AI Chats
+        SearchBar
       </Link>
       {/* <Link
         className="transition-colors hover:text-foreground/80 text-foreground/60"
