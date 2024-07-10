@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+
 import { useTheme } from "next-themes";
 
 import { Button } from "@/shared/ui/button";
@@ -12,9 +12,15 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/shared/ui/dropdown-menu";
+import { useEffect, useState } from "react";
 
 export function ToggleTheme() {
   const { theme, setTheme } = useTheme();
+  const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    setToggle(!toggle);
+  }, [theme]);
 
   return (
     <Button
@@ -22,11 +28,11 @@ export function ToggleTheme() {
       variant="ghost"
       size="icon"
     >
-      {theme == "light" ? (
+      {toggle ?
         <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      ) : (
+       :
         <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      )}
+      }
     </Button>
   );
 }

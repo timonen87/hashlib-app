@@ -1,6 +1,12 @@
 import { ThemeProvider } from "@/features/theme/theme-provider";
 import { AppHeader } from "@/widgets/app-header/app-header";
 
+export const metadata = {
+  title: 'GetSpy.ru ',
+  description: 'В помощь разработчику',
+};
+
+
 export default async function Layout({
   children,
 }: {

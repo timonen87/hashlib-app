@@ -1,5 +1,3 @@
-
-
 // import { LandingNavbar } from "@/widgets/app-header/landing-navbar";
 import Link from "next/link";
 import { CreatePostForm } from "@/features/posts-list/pub/create-post-form";
@@ -13,11 +11,12 @@ import {
 } from "@radix-ui/react-icons";
 import { buttonVariantsLink } from "@/shared/ui/button-menu";
 // import { usePathname } from "next/navigation";
+import leftMenuButton from "@/shared/ui/left-menu-nav";
 
 const menu = [
-  { text: " Главная", icon: <GridIcon />, path: "/" },
+  { text: " Популярное", icon: <GridIcon />, path: "/" },
   { text: " Моя лента", icon: <TokensIcon />, path: "/" },
-  { text: "Все", icon: <ActivityLogIcon />, path: "/all" },
+  // { text: "Все", icon: <ActivityLogIcon />, path: "/all" },
   { text: "Закладки", icon: <CalendarIcon />, path: "/bookmarks" },
   { text: "Подписки", icon: <ChatBubbleIcon />, path: "/follows" },
 ];
@@ -27,26 +26,25 @@ export default async function Home() {
   return (
     <div className="grid sm:grid-cols-1 md:gap-x-4 md:grid-cols-5 xl:grid-cols-7 py-6">
       <div className="hidden col-auto max-w-200 md:block">
-        <div className="hidden col-auto md:block w-[150px]">
+        <div className="hidden col-auto md:block w-[180px]">
           <ul className="flex-col justify-start gap-4 mb-2">
             {menu.map((obj) => (
               <li className="mb-1 pb-2 justify-start" key={obj.path}>
-                {/* <Link className={buttonVariants({variant:{router.asPath === obj.path ? 'subtle' : 'text'}})}></Link> */}
-
                 <Link
                   href={obj.path}
-                  className={buttonVariantsLink({
-                    variant: "subtle",
-                  })}
+                  className="relative inline-flex items-center justify-center leading-normal no-underline pb-1 text-black font-sans font-bold text-sm uppercase hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-neutral-500 transition group dark:text-white "
                 >
-                  <div className="mr-2">{obj.icon}</div>
-                  <div className="text-sm"> {obj.text} </div>
+                  <span className="mr-2">{obj.icon}</span>
+                  <span className="text-l"> {obj.text} </span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-neutral-700 origin-bottom-right transform transition duration-200 ease-out scale-x-0 group-hover:scale-x-100 group-hover:origin-bottom-left"></span>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-        {/* Left Block */}
+
+
+
       </div>
 
       <ul className="flex flex-col md:col-span-4 xl:col-span-4 space-y-6">

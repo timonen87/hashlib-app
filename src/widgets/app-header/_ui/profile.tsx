@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/shared/ui/dropdown-menu";
-import { LogOut, User } from "lucide-react";
+import { LogOut, Newspaper, User } from "lucide-react";
 import { Button } from "@/shared/ui/button";
 import Link from "next/link";
 import { useAppSession } from "@/entities/user/session";
@@ -19,10 +19,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
 import { useRole } from "@/entities/user/session";
 import { ProfileAvatar, getProfileDisplayName } from "@/entities/user/profile";
 
-
 export function Profile() {
   const session = useAppSession();
-  
+
   const { signOut, isPending: isLoadingSignOut } = useSignOut();
 
   if (session.status === "loading") {
@@ -42,6 +41,7 @@ export function Profile() {
         >
           <ProfileAvatar profile={user} className="w-8 h-8" />
         </Button>
+
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 mr-2 ">
         <DropdownMenuLabel>
@@ -53,6 +53,18 @@ export function Profile() {
         <DropdownMenuGroup></DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
+          <DropdownMenuItem asChild>
+            <Link href="/create">
+              <Newspaper className="mr-2 h-4 w-4" />
+              <span>Добавить категорию</span>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/drafts">
+              <Newspaper className="mr-2 h-4 w-4" />
+              <span>Мои записи</span>
+            </Link>
+          </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link href={`/profile/${user?.id}`}>
               <User className="mr-2 h-4 w-4" />
