@@ -20,7 +20,7 @@ export default async function Layout({
           {/* <AppHeader variant="public" /> */}
           <VerticalHeader variant="public" />
         </div>
-        <div className=" mx-auto pt-0 min-h-[100vh]  sm:w-10/12 dark:bg-slate-800 ">
+        <div className=" mx-auto pt-0 min-h-[100vh]  sm:w-10/12 inset-x-0 bg-slate-50 dark:bg-slate-800 ">
         {children}
         </div>
       </div>

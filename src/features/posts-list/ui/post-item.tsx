@@ -58,19 +58,6 @@ export function PostItem({
       <div className="rounded-lg border bg-card text-card-foreground shadow-sm ">
         <div className="px-2 py-4 flex justify-between">
           <div className="w-0 flex-1">
-            {/* <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1">
-                <div className="flex flex-col items-start gap-0 ml-2">
-                  <div className="flex items-center gap-2 pl-6">
-                    <ProfileAvatar profile={user} className="w-8 h-8" />
-                    <span>{user?.name}</span>
-                    <span className="text-xs">
-                      {formatTimeToNow(new Date(post.createdAt))}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div> */}
 
             <div className="flex flex-col space-y-1.5 pl-2 pt-2">
               <h3

@@ -33,15 +33,15 @@ export function Layout({
               className="inline-flex items-center px-1 pt-1 border-transparent text-sm font-medium leading-5 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition mb-3"
               href="/wall"
             >
-              <span className="text-xs font-bold">Лента</span>
+              <span className="text-xl font-bold">Лента</span>
             </Link>
           </div>
           <div className="flex flex-row items-center sm:flex-col ">
             <Link
               className="inline-flex items-center px-1 pt-1 border-transparent text-sm font-medium leading-5 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition mb-3"
-              href="/post"
+              href="/posts"
             >
-              <span className="text-xs font-bold">Посты</span>
+              <span className="text-xl font-bold">Посты</span>
             </Link>
           </div>
         </div>

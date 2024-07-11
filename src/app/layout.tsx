@@ -28,7 +28,7 @@ export default function RootLayout({
         )} */}
       <body
         className={cn(
-          "flex font-sans antialiased bg-white",
+          "flex font-sans antialiased bg-white bg-slate-50",
           fontSans.variable,
         )}
       >
