@@ -36,12 +36,16 @@ export function Layout({
           </Sheet>
         </div>
 
-        <div className="mr-4 hidden md:flex mr-4">{logo}</div>
+        <div className="mr-4 hidden md:flex">{logo}</div>
         <div className="items-center flex-1 flex">
           <div className="hidden md:flex">{nav}</div>
           <div className="flex flex-1 items-center justify-end space-x-3 ">
-            {actions}
+            <div className="hidden cursor-pointer md:block">
+             {actions}
+             </div>
+            <div className="nav-profile-wrapper pb-5">
             {profile}
+            </div>
           </div>
         </div>
       </div>

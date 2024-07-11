@@ -12,13 +12,17 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/shared/ui/dropdown-menu";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 export function ToggleTheme() {
   const { theme, setTheme } = useTheme();
   const [toggle, setToggle] = useState(false);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   setToggle(!toggle);
+  // }, [theme]);
+
+  useLayoutEffect(() => {
     setToggle(!toggle);
   }, [theme]);
 
@@ -28,9 +32,11 @@ export function ToggleTheme() {
       variant="ghost"
       size="icon"
     >
-      {toggle ?
+      {toggle &&
         <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-       :
+      }
+
+      {!toggle &&
         <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
       }
     </Button>

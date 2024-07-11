@@ -1,11 +1,11 @@
 import { ThemeProvider } from "@/features/theme/theme-provider";
 import { AppHeader } from "@/widgets/app-header/app-header";
+import { VerticalHeader } from "@/widgets/vertical-header/vertical-header";
 
 export const metadata = {
-  title: 'GetSpy.ru ',
-  description: 'В помощь разработчику',
+  title: "GetSpy.ru ",
+  description: "В помощь разработчику",
 };
-
 
 export default async function Layout({
   children,
@@ -15,9 +15,14 @@ export default async function Layout({
   return (
     <>
       <ThemeProvider />
-      <AppHeader variant="public" />
-      <div className="container  max-w-7xl mx-auto pt-0 min-h-[100vh]">
-      {children}
+      <div className="vertical-main-wrapper dark:bg-black">
+        <div className="vertical-main-sidebar">
+          {/* <AppHeader variant="public" /> */}
+          <VerticalHeader variant="public" />
+        </div>
+        <div className=" mx-auto pt-0 min-h-[100vh]  sm:w-10/12 dark:bg-black">
+        {children}
+        </div>
       </div>
     </>
   );
