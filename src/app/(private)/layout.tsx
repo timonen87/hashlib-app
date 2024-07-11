@@ -11,8 +11,8 @@ export default async function Layout({
     <>
 
       {/* <AppHeader variant="private" /> */}
-      <div className="vertical-main-wrapper dark:bg-black">
-      <div className=" vertical-main-sidebar dark:bg-black">
+      <div className="vertical-main-wrapper dark:bg-slate-800">
+      <div className=" vertical-main-sidebar dark:bg-slate-800">
       <VerticalHeader variant="private" />
 
       </div>

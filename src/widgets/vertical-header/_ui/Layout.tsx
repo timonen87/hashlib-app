@@ -23,7 +23,7 @@ export function Layout({
 }) {
   return (
     <>
-      <div className="bg-white vertical-sidebar-wrapper dark:bg-black">
+      <div className="bg-white vertical-sidebar-wrapper dark:bg-slate-800">
         <div className="items-center nav-group nav-group-1 ">
           <div className="ml-5 mt-4 mb-6 underline sm:ml-0 ">
             <Logo />

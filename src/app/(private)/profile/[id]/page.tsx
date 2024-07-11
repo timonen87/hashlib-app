@@ -14,7 +14,7 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
     //   <UpdateProfileForm userId={params.id} />
     // </main>
 
-    <main className="flex flex-col vertical-main-content dark:bg-black max-w-[600px] pt-6">
+    <main className="flex flex-col vertical-main-content dark:bg-black max-w-[600px] pt-6 pr-6">
       <div className="flex flex-col items-center h-full">
         <div className="leading-normal tracking-normal gradient w-full pl-6 ">
           <div>

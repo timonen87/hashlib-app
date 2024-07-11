@@ -55,7 +55,7 @@ export function PostItem({
         </CardFooter>
       </Card>
 
-      <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
+      <div className="rounded-lg border bg-card text-card-foreground shadow-sm ">
         <div className="px-2 py-4 flex justify-between">
           <div className="w-0 flex-1">
             {/* <div className="flex items-center justify-between">

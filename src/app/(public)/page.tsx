@@ -13,6 +13,8 @@ import { buttonVariantsLink } from "@/shared/ui/button-menu";
 // import { usePathname } from "next/navigation";
 import leftMenuButton from "@/shared/ui/left-menu-nav";
 import { Leanding } from "@/widgets/leanding/leanding";
+import { Footer } from "@/widgets/leanding/footer";
+import AuthenticationPage from "../(auth)/auth/sign-in/page";
 
 const menu = [
   { text: " Популярное", icon: <GridIcon />, path: "/" },
@@ -26,23 +28,26 @@ export default async function Home() {
   // const pathname = usePathname();
   return (
     <>
-    <main className="flex flex-col bg-white vertical-main-content dark:bg-black">
-    <Leanding/>
-    </main>
-      {/* <main className="flex flex-co vertical-main-content pt-6">
+      <main className="flex flex-col bg-white vertical-main-content dark:bg-slate-800 h-full">
+        <Leanding />
+
+        <div className="border-b py-8"></div>
+        {/* <main className="flex flex-co vertical-main-content pt-6"> */}
         <div className="flex flex-col items-center h-full">
           <div className="leading-normal tracking-normal gradient w-full ">
             <PostsList revalidatePagePath="/" />
-           <div className="p-6">
-           <CreatePostForm
-              revalidatePagePath="/"
-              className="max-w-[300px] mb-10"
-            />
-           </div>
+            <div className="p-6">
+              {/* <CreatePostForm
+                revalidatePagePath="/"
+                className="max-w-[300px] mb-10"
+              /> */}
+            </div>
           </div>
         </div>
-      </main> */}
+        <Footer />
+      </main>
     </>
+
     //  <div className="grid sm:grid-cols-1 md:gap-x-4 md:grid-cols-5 xl:grid-cols-7 py-6">
     //   <div className="hidden col-auto max-w-200 md:block">
     //     <div className="hidden col-auto md:block w-[180px]">

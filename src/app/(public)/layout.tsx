@@ -15,12 +15,12 @@ export default async function Layout({
   return (
     <>
       <ThemeProvider />
-      <div className="vertical-main-wrapper dark:bg-black">
+      <div className="vertical-main-wrapper dark:bg-slate-800 ">
         <div className="vertical-main-sidebar">
           {/* <AppHeader variant="public" /> */}
           <VerticalHeader variant="public" />
         </div>
-        <div className=" mx-auto pt-0 min-h-[100vh]  sm:w-10/12 dark:bg-black">
+        <div className=" mx-auto pt-0 min-h-[100vh]  sm:w-10/12 dark:bg-slate-800 ">
         {children}
         </div>
       </div>
