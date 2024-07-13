@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/shared/ui/button";
-import { FC, useRef } from "react";
+import { FC, useRef, useState } from "react";
 import Link from "next/link";
 import {
   Card,
@@ -24,6 +24,7 @@ export function PostItem({
 }) {
   const session = useAppSession();
   const [isLoadingDelete, startDeleteTransition] = useTransition();
+
   const pRef = useRef<HTMLParagraphElement>(null);
 
   const handleDelete = () => {
@@ -43,69 +44,95 @@ export function PostItem({
 
   return (
     <>
-      <Card>
-        <CardHeader>
-          <CardTitle>{post.name}</CardTitle>
-          <CardDescription>{post.description}</CardDescription>
-        </CardHeader>
-        <CardFooter>
-          <Button disabled={isLoadingDelete} onClick={handleDelete}>
-            Удалить
-          </Button>
-        </CardFooter>
-      </Card>
-
-      <div className="rounded-lg border bg-card text-card-foreground shadow-sm ">
-        <div className="px-2 py-4 flex justify-between">
-          <div className="w-0 flex-1">
-
-            <div className="flex flex-col space-y-1.5 pl-2 pt-2">
-              <h3
-                className="text-2xl font-semibold leading-none tracking-tight pb-2"
-                data-heading-tag="H3"
-              >
-                {post.name}
-              </h3>
-              <div
-                className="relative text-sm max-h-40 w-full overflow-clip"
-                ref={pRef}
-              >
-                {/* <EditorOutput content={post.content} /> */}
-                <p>{post.description}</p>
-                {pRef.current?.clientHeight === 200 ? (
-                  // blur bottom if content is too long
-                  <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-white to-transparent dark:from-black"></div>
-                ) : (
-                  <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-white to-transparent dark:from-black"></div>
-                )}
-              </div>
+        <div className="p-6 flex flex-col relative md:px-5 w-full mt-4 py-4 bg-white dark:bg-gray-700 shadow rounded-lg">
+        <div className="hidden flex items-center justify-center loading-status bg-white dark:bg-dark-background opacity-75 w-full absolute border-r">
+          <div className="w-4 h-4 border-l-2 border-gray-500 rounded-full animate-spin"></div>
+        </div>
+        <div className="article-short-user-data flex flex-col sm:flex-row">
+          <div className="flex flex-row">
+            <Link
+              href="/profile/devapp"
+              className="profile-image hashlinks cursor-pointer"  >
+              <Skeleton className="w-8 h-8 rounded-full mr-2" />
+            </Link>
+            <div className="pr-1">
+              <Link className="hover:underline" href="/en/profile/floyk-com">
+                devapp space
+              </Link>
             </div>
           </div>
+          <div className="pr-1">
+            <div className="pr-1">
+              <Link
+                className="hover:underline"
+                href="/post/category/programming"
+              >
+                в Python
+              </Link>
+            </div>
+          </div>
+          <div className="pr-1">4 месяца назад | 1 минута чтения</div>
         </div>
-        <div className="flex items-center justify-between pt-0 pl-2 pr-2">
-          {/* <Link
-              href={`/category/`}
-              className="w-fit flex items-center gap-2 pl-2"
+        <div className="article-short-content-wrapper flex flex-col sm:flex-row justify-between">
+          <div>
+            <div className="article-short-title">
+              <Link href="/en/post/how-to-install-imagemagick-on-php-83">
+                <h1 className="text-2xl hover:underline" data-heading-tag="H1">
+                {post.name}
+                </h1>
+              </Link>
+              <h4 data-heading-tag="H4">описание модели</h4>
+            </div>
+            <Link
+              href="/en/post/how-to-install-imagemagick-on-php-83"
+              className="article-short-teaser py-3 px-3 "
             >
-              <MessageSquare className="h-4 w-4 " /> 25 min read
-            </Link> */}
-          <div className="flex items-center gap-2 pl-2">
-            <ProfileAvatar profile={user} className="w-8 h-8" />
-            <span>{user?.name}</span>
-            <span className="text-xs">
-              {/* {formatTimeToNow(new Date(post.createdAt))} */}
-            </span>
+              <p>
+              {post.description}
+              </p>
+            </Link>
           </div>
 
-          <div className="flex items-center gap-2 py-4">
-            <Newspaper className="h-4 w-4 mr-1" />
-
-            <>
-              <Link href={`/cat/`}>Python</Link>
-            </>
+          <Link href="/en/post/how-to-install-imagemagick-on-php-83">
+            {/* <Image src="https://floyk-dev.s3.eu-central-1.amazonaws.com/wall_photos/thumb/7655f89ec20f369f5ece796fadff43f8.jpeg" alt="How to install ImageMagick on PHP 8.3" width={240} height={100}> */}
+          </Link>
+        </div>
+        <div className="article-short-footer flex flex-row justify-between">
+          <div>
+            <Link href="/en/post/tag/php">
+              <span className="text-gray-500 bg-gray-100 dark:from-slate-800 dark:hover:bg-dark-foreground rounded-full px-2 font-bold text-sm leading-loose cursor-pointer mr-2">
+                PHP
+              </span>
+            </Link>
+            <Link href="/en/post/tag/image">
+              <span className="text-gray-500 bg-gray-100 dark:from-slate-800 dark:hover:bg-dark-foreground rounded-full px-2 font-bold text-sm leading-loose cursor-pointer mr-2">
+                Image
+              </span>
+            </Link>
+            <Link href="/en/post/tag/intervention-image">
+              <span className="text-gray-500 bg-gray-100 dark:from-slate-800 dark:hover:bg-dark-foreground rounded-full px-2 font-bold text-sm leading-loose cursor-pointer mr-2">
+                Intervention Image
+              </span>
+            </Link>
+            <Link href="/en/post/tag/imagick">
+              <span className="text-gray-500 bg-gray-100 dark:from-slate-800 dark:hover:bg-dark-foreground rounded-full px-2 font-bold text-sm leading-loose cursor-pointer mr-2">
+                Imagick
+              </span>
+            </Link>
+            <Link href="/en/post/tag/imagemagick">
+              <span className="text-gray-500 bg-gray-100 dark:from-slate-800 dark:hover:bg-dark-foreground rounded-full px-2 font-bold text-sm leading-loose cursor-pointer mr-2">
+                ImageMagick
+              </span>
+            </Link>
+          </div>
+          <div className="text-sm flex flex-row opacity-50">
+            <div className="text-sm mr-1">Просмотры: </div>
+            <div>382</div>
           </div>
         </div>
       </div>
+
+
     </>
   );
 }

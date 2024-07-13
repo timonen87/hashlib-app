@@ -4,8 +4,8 @@ import { Skeleton } from "@/shared/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 import { PostsList } from "@/features/posts-list/pub/posts-list";
-import { PostItemV2 } from "@/features/posts-list/ui/post-item-v2";
-import { PostsListV2 } from "@/features/posts-list/pub/posts-list-v2";
+import { PostItemV2 } from "@/features/posts-list/ui/post-item";
+import { PostsListV2 } from "@/features/posts-list/pub/posts-list";
 
 export default function PostsPage({ params }: { params: { slug: string } }) {
   return (

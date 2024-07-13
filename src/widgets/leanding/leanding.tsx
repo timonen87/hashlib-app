@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function Leanding() {
   return (
-    <div className="flex-auto leading-normal tracking-normal gradient w-full bg-slate-50">
+    <div className="flex-auto leading-normal tracking-normal gradient w-full bg-slate-50 dark:bg-slate-800">
       <div className="flex  justify-between w-full flex-col md:flex-row md:items-center">
         <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
           <div className="p-3 z-10">
@@ -13,7 +13,7 @@ export function Leanding() {
               Это то, что вы ищете?
             </p>
             <h1 className="my-4 text-5xl font-bold " >
-             База занинй для разработчиков и промпт инженеров !
+             База занинй для разработчиков
             </h1>
             <p className="leading-normal text-2xl mb-8">
               Получи доступ ко всем современным  AI интерфейсам!
@@ -38,7 +38,7 @@ export function Leanding() {
           />
         </div>
       </div>
-      <section className="bg-slate-50 dark:bg-black border-b py-8">
+      <section className="bg-slate-50 dark:bg-slate-800 border-b py-8">
         <div className="container max-w-5xl mx-auto m-8">
           <p
             className="w-full my-2 text-3xl font-bold leading-tight text-center "

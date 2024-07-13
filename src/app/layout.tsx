@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter as NunitoSans } from "next/font/google";
 import { cn } from "@/shared/ui/utils";
 import { AppProvider } from "./_providers/app-provider";
+import { Footer } from "@/widgets/leanding/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,18 +22,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-        )} */}
       <body
         className={cn(
-          "flex font-sans antialiased bg-white bg-slate-50",
+          "flex font-sans antialiased bg-slate-50 dark:bg-slate-800",
           fontSans.variable,
         )}
       >
+
         <AppProvider>{children}</AppProvider>
+
       </body>
     </html>
   );

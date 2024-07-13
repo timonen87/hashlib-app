@@ -104,7 +104,7 @@
 
   @media all and (max-width: 640px) {
     .vertical-main-wrapper,.vertical-main-content {
-        flex-direction:column;
+        flex-direction: column;
         width: 100vw;
     }
 

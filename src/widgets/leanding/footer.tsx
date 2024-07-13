@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <div
-      className="flex-shrink-0 items-center p-2 bg-white dark:bg-slate-800"
+      className="flex-shrink-0 items-center p-2 bg-slate-50 dark:bg-slate-800"
     >
       <div className="flex flex-row justify-between w-full">
         <div>
@@ -38,7 +38,7 @@ export function Footer() {
           </a>
         </div>
         <div>
-          {/* <p className="text-sm opacity-75">fat beta</p> */}
+          <p className="text-sm opacity-75">devion</p>
         </div>
       </div>
     </div>
