@@ -4,9 +4,11 @@ import { useQueryClient } from "@tanstack/react-query";
 const baseKey = "post";
 
 export const getPostQuery = (postId: PostEntity) => ({
-  queryKey: [baseKey, "getPostById", postId],
+  queryKey: [baseKey, "getPostBySlug", postId],
   queryFn: () => getPostAction({ postId }),
 });
+
+
 
 export const useInvalidatePost = () => {
   const queryClient = useQueryClient();
