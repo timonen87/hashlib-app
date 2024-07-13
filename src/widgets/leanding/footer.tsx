@@ -13,7 +13,7 @@ export function Footer() {
             href="/post/privacy-policy"
             target="_blank"
           >
-            Политика конфиденциальнсти
+            Политика 
           </a>
           <a
             className="p-2 text-sm opacity-75 hover:underline"
