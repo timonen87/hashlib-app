@@ -27,6 +27,7 @@ export type SessionEntity = {
 };
 
 export type Profile = {
+  id: UserId;
   email: string;
   name?: string | null;
   image?: string | null;

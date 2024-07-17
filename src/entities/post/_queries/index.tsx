@@ -1,20 +1,20 @@
 
-import { useQueryClient } from "@tanstack/react-query";
+// import { useQueryClient } from "@tanstack/react-query";
 
-const baseKey = "post";
+// const baseKey = "post";
 
-export const getPostQuery = (postId: PostEntity) => ({
-  queryKey: [baseKey, "getPostBySlug", postId],
-  queryFn: () => getPostAction({ postId }),
-});
+// export const getPostQuery = (postId: PostEntity) => ({
+//   queryKey: [baseKey, "getPostBySlug", postId],
+//   queryFn: () => getPostAction({ postId }),
+// });
 
 
 
-export const useInvalidatePost = () => {
-  const queryClient = useQueryClient();
+// export const useInvalidatePost = () => {
+//   const queryClient = useQueryClient();
 
-  return (postId: PostEntity) =>
-    queryClient.invalidateQueries({
-      queryKey: [baseKey, "getPostById", userId],
-    });
-};
+//   return (postId: PostEntity) =>
+//     queryClient.invalidateQueries({
+//       queryKey: [baseKey, "getPostById", userId],
+//     });
+// };
