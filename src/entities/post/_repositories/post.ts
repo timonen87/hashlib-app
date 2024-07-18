@@ -5,9 +5,29 @@ import { PostListElement } from "../_domain/types";
 class PostRepository {
   getPostList = cache(
     (): Promise<PostListElement[]> => dbClient.post.findMany({
+      where: {
+        published: false
+      },
+      orderBy: {
+        title: 'asc'
+      },
       include: {
-        author: true,
-        category: true
+        author: {
+         select:{
+          id: true,
+          email: true,
+          image: true
+         },
+        },
+        category: {
+          select:{
+            id:true,
+            name:true,
+            slug:true,
+            image:true
+
+          },
+        }
       }
     }),
   );

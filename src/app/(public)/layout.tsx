@@ -23,7 +23,7 @@ export default async function Layout({
         <div className=" mx-auto pt-0 min-h-[100vh]  sm:w-10/12 inset-x-0 bg-slate-50 dark:bg-slate-800 ">
           <main className="flex flex-col bg-slate-50 vertical-main-content dark:bg-slate-800 h-full">
             {children}
-            <Footer />
+            {/* <Footer /> */}
 
           </main>
 

@@ -67,7 +67,7 @@ export function PostItem({
                 className="hover:underline"
                 href={`/post/${post.category.slug}`}
               >
-                Python
+                {post.category.name}
               </Link>
             </div>
           </div>
@@ -76,7 +76,7 @@ export function PostItem({
         <div className="article-short-content-wrapper flex flex-col sm:flex-row justify-between">
           <div>
             <div className="article-short-title">
-              <Link href={`/post/${post.category.slug}/${post.slug}`}>
+              <Link href={`/posts/${post.slug}`}>
                 <h1 className="text-2xl hover:underline" data-heading-tag="H1">
                   {post.title}
                 </h1>

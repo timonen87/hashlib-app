@@ -15,13 +15,21 @@ import { Post, Category, User } from "@prisma/client";
 //   creatorId: string | null;
 // }
 
+type PostListCategory = {
+  id: string;
+  name: string;
+  image: string | null;
+  slug: string;
+
+}
+
 
 export type PostListElement = {
     id: string;
     title: string;
     content: any;
     author: Profile
-    category: Category;
+    category: PostListCategory;
     slug: string;
 };
 
