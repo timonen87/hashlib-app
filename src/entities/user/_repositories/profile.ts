@@ -8,6 +8,7 @@ export class ProfileRepository {
       data,
     });
   }
+
 }
 
 export const profileRepository = new ProfileRepository();

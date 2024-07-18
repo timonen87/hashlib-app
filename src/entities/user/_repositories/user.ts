@@ -1,8 +1,16 @@
 import { dbClient } from "@/shared/lib/db";
-import { UserEntity, UserId } from "../_domain/types";
+import { Profile,  UserEntity, UserId } from "../_domain/types";
 
 export class UserRepository {
   async getUserById(userId: UserId): Promise<UserEntity> {
+    return dbClient.user.findUniqueOrThrow({
+      where: {
+        id: userId,
+      },
+    });
+  }
+
+  async getAuthorById(userId: UserId): Promise<Profile>  {
     return dbClient.user.findUniqueOrThrow({
       where: {
         id: userId,
@@ -16,5 +24,6 @@ export class UserRepository {
     });
   }
 }
+
 
 export const userRepository = new UserRepository();

@@ -1,3 +1,5 @@
+
+import { PostsFeed } from "@/entities/post/pub/post-feed";
 import { PostsList } from "@/features/posts-list/pub/posts-list";
 import { UpdateProfileForm } from "@/features/update-profile/update-profile-form";
 import { Separator } from "@/shared/ui/separator";
@@ -10,7 +12,8 @@ export default function PostsPage({ params }: { params: { slug: string } }) {
   return (
     <main className="flex-auto flex-col vertical-main-content dark:bg-slate-800  pt-6 pr-6">
       <div className="flex flex-col w-full">
-        <PostsList revalidatePagePath="/posts" />
+        {/* <PostsList revalidatePagePath="/posts" /> */}
+        <PostsFeed  />
       </div>
     </main>
   );
