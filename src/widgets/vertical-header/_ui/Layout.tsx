@@ -27,6 +27,14 @@ export function Layout({
         <div className="items-center nav-group nav-group-1 ">
           <div className="ml-5 mt-4 mb-6 underline sm:ml-0 ">
             <Logo />
+            <div>
+              <Link
+                className="inline-flex items-center px-1 pt-0 border-transparent text-m font-medium leading-5 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition mb-2"
+                href="/"
+              >
+                <span className="text-xl font-bold">polls</span>
+              </Link>
+            </div>
           </div>
           <div>
             <Link
