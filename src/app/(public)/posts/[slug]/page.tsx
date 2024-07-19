@@ -54,7 +54,7 @@ export default function PostDetail({ params }: { params: { slug: string } }) {
               >
                 <li className="flex">
                   <div className="flex items-center">
-                    <a href="https://floyk.com" className="">
+                    <a href="/" className="">
                       <svg
                         className="flex-shrink-0 w-5 h-5"
                         xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ export default function PostDetail({ params }: { params: { slug: string } }) {
                 <li className="flex">
                   <div className="flex items-center">
                     <a
-                      href="https://floyk.com/en/post/category"
+                      href="/category"
                       className="text-sm font-medium "
                     >
                       Категория
@@ -83,7 +83,7 @@ export default function PostDetail({ params }: { params: { slug: string } }) {
                 <li className="flex">
                   <div className="flex items-center">
                     <a
-                      href="https://floyk.com/en/post/category/programming"
+                      href="/category/python"
                       className="text-sm font-medium "
                     >
                       Python
@@ -122,6 +122,7 @@ export default function PostDetail({ params }: { params: { slug: string } }) {
         componentDidMount(): Вызывается сразу после монтирования
         компонента.Используется для выполнения побочных эффектов, таких как
         запросы к API или настрой
+
       </div>
     </main>
   );
