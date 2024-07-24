@@ -6,6 +6,7 @@ import { userRepository } from "@/entities/user/_repositories/user";
 import { profileRepository } from "@/entities/user/_repositories/profile";
 import { dbClient } from "@/shared/lib/db";
 import { UserId } from "@/entities/user/user";
+import Post from "./post";
 
 export async function PostsFeed() {
   const postList = await postRepository.getPostList();
@@ -16,7 +17,7 @@ export async function PostsFeed() {
     <div>
       <ul className="flex flex-col md:col-span-4 xl:col-span-4 space-y-6">
         {postList.map((post) => (
-          <PostItem key={post.id} post={post} />
+          <Post post={post} key={post.id} />
         ))}
 
         {/* {isFetchingNextPage && (

@@ -4,6 +4,7 @@ import { Inter as NunitoSans } from "next/font/google";
 import { cn } from "@/shared/ui/utils";
 import { AppProvider } from "./_providers/app-provider";
 import { Footer } from "@/widgets/leanding/footer";
+import { Toaster } from "@/shared/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
 
         <AppProvider>{children}</AppProvider>
+        <Toaster />
 
       </body>
     </html>

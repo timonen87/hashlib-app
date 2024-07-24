@@ -1,19 +1,30 @@
-import { Profile } from "@/entities/user/profile";
-import { Post, Category, User } from "@prisma/client";
+import { getUserDataSelect } from "@/entities/user/_domain/types";
+
+import { Prisma } from "@prisma/client";
+import { Post,  User } from "@prisma/client";
 
 
 
-// type Category = {
-//   id: string;
-//   name: string;
-//   image: string | null;
-//   slug: string;
-//   description: string | null;
-//   hideBlock: boolean;
-//   createdAt: Date;
-//   updatedAt: Date;
-//   creatorId: string | null;
-// }
+export function getPostDataInclude(userId: string) {
+  return {
+    user:{
+      select: getUserDataSelect(userId),
+    },
+    attachments: true,
+
+  } satisfies Prisma.PostInclude;
+}
+
+
+export type PostData = Prisma.PostGetPayload<{
+  include: ReturnType<typeof getPostDataInclude>
+}>
+
+
+export interface PostsPage {
+  posts: PostData[];
+  nextCursor: string | null
+}
 
 type PostListCategory = {
   id: string;

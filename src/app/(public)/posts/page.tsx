@@ -1,4 +1,5 @@
 
+import MyPostFeed from "@/entities/post/pub/my-post-feed";
 import { PostsFeed } from "@/entities/post/pub/post-feed";
 import { PostsList } from "@/features/posts-list/pub/posts-list";
 import { UpdateProfileForm } from "@/features/update-profile/update-profile-form";
@@ -13,7 +14,8 @@ export default function PostsPage({ params }: { params: { slug: string } }) {
     <main className="flex-auto flex-col vertical-main-content dark:bg-slate-800  pt-6 pr-6">
       <div className="flex flex-col w-full">
         {/* <PostsList revalidatePagePath="/posts" /> */}
-        <PostsFeed  />
+        {/* <PostsFeed  /> */}
+        <MyPostFeed/>
       </div>
     </main>
   );
