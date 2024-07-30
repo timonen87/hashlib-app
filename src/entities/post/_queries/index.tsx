@@ -1,12 +1,14 @@
 
-// import { useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
+import { getPostAction } from "../_actions/get-post-detail";
+import { PostData } from "../post";
 
-// const baseKey = "post";
+const baseKey = "post";
 
-// export const getPostQuery = (postId: PostEntity) => ({
-//   queryKey: [baseKey, "getPostBySlug", postId],
-//   queryFn: () => getPostAction({ postId }),
-// });
+export const getPostQuery = (slug: string) => ({
+  queryKey: [baseKey, "getPostBySlug", slug],
+  queryFn: () => getPostAction({ slug }),
+});
 
 
 

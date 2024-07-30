@@ -11,6 +11,8 @@ import Post from "./post";
 export async function PostsFeed() {
   const postList = await postRepository.getPostList();
 
+
+
   console.log(postList);
 
   return (

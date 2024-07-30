@@ -13,6 +13,7 @@ import Link from "next/link";
 import { PropsWithChildren } from "react";
 import { ProfileAuthor } from "./profile-author";
 import { Button } from "@/shared/ui/button";
+import Linkify from "./linkify";
 
 interface UserTooltipProps extends PropsWithChildren {
   user: UserData;
@@ -51,9 +52,9 @@ export default function UserTooltip({ children, user }: UserTooltipProps) {
               </Link>
             </div>
             {currentUser?.bio && (
-              // <Linkify>
+              <Linkify>
               <div className="line-clamp-4 whitespace-pre-line">{user.bio}</div>
-              // </Linkify>
+              </Linkify>
             )}
             {/* <FollowerCount userId={user.id} initialState={followerState} /> */}
           </div>

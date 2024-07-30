@@ -1,5 +1,5 @@
 
-import { MoreHorizontal, Trash2 } from "lucide-react";
+import { FileEdit, MoreHorizontal, Trash2 } from "lucide-react";
 import { useState } from "react";
 
 
@@ -29,6 +29,12 @@ export default function PostMoreButton({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
+        <DropdownMenuItem >
+            <span className="flex items-center gap-3">
+              <FileEdit className="size-4" />
+              Редактировать
+            </span>
+          </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setShowDeleteDialog(true)}>
             <span className="flex items-center gap-3 text-destructive">
               <Trash2 className="size-4" />

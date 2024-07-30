@@ -1,6 +1,6 @@
 import { dbClient } from "@/shared/lib/db";
 import { cache } from "react";
-import { getPostDataInclude, PostData, PostListElement } from "../_domain/types";
+import { getPostDataInclude, getPostDataSelect, PostData } from "../_domain/types";
 
 class PostRepository {
   // getPostList = cache(
@@ -42,6 +42,17 @@ class PostRepository {
   //     data: command,
   //   });
   // };
+  getPostBySlug = (slug: string) => {
+    return dbClient.post.findFirst({
+      where:{
+        slug: slug,
+      },
+      include: {
+        user:true
+      }
+
+    })
+  }
 
   deletePost = (command: PostData) => {
     return dbClient.post.delete({
