@@ -14,6 +14,8 @@ import { PropsWithChildren } from "react";
 import { ProfileAuthor } from "./profile-author";
 import { Button } from "@/shared/ui/button";
 import Linkify from "./linkify";
+import FollowButton from "@/features/follower/ui/follow-button";
+import { FollowerInfo } from "@/features/follower/models/types";
 
 interface UserTooltipProps extends PropsWithChildren {
   user: UserData;
@@ -23,6 +25,13 @@ export default function UserTooltip({ children, user }: UserTooltipProps) {
   const session = useAppSession();
 
   const currentUser = session?.data?.user;
+
+  const followerState: FollowerInfo = {
+    followers: user._count.followers,
+    isFollowedByUser: !!user.followers.some(
+      ({ followerId }) => followerId === currentUser?.id,
+    ),
+  };
 
   return (
     <TooltipProvider>
@@ -34,14 +43,14 @@ export default function UserTooltip({ children, user }: UserTooltipProps) {
               <Link href={`/users/${currentUser?.name}`}>
                 <ProfileAuthor profile={user} className="w-8 h-8" />
               </Link>
-              {/* {loggedInUser.id !== user.id && (
-                  <FollowButton userId={user.id} initialState={followerState} />
-                )} */}
               {currentUser?.id !== user.id && (
+                  <FollowButton userId={user.id} initialState={followerState} />
+                )}
+              {/* {currentUser?.id !== user.id && (
                 <Button variant="default" onClick={() => {}}>
                   Follow
                 </Button>
-              )}
+              )} */}
             </div>
             <div>
               <Link href={`/users/${user.name}`}>

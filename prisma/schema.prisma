@@ -56,6 +56,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
+  following             Follow[]       @relation("Following")
+  followers             Follow[]       @relation("Followers")
   // subscriptions     Subscription[]
   // votes             Vote[]
   createdAt DateTime @default(now())
@@ -73,6 +75,17 @@ model VerificationToken {
 enum Role {
   ADMIN
   USER
+}
+
+
+model Follow {
+  followerId  String
+  follower    User   @relation("Following", fields: [followerId], references: [id], onDelete: Cascade)
+  followingId String
+  following   User   @relation("Followers", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@map("follows")
 }
 
 model Post {

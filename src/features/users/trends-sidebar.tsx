@@ -1,6 +1,4 @@
 
-
-
 import { Loader2 } from "lucide-react";
 import { unstable_cache } from "next/cache";
 import Link from "next/link";
@@ -16,6 +14,7 @@ import { UserAvatar } from "@/shared/ui/user-avatar";
 import { Avatar } from "@/shared/ui/avatar";
 import { ProfileAuthor } from "@/entities/post/ui/profile-author";
 import { formatNumber } from "@/shared/lib/utils";
+import FollowButton from "../follower/ui/follow-button";
 
 export default function TrendsSidebar() {
   return (
@@ -29,24 +28,26 @@ export default function TrendsSidebar() {
 }
 
 async function WhoToFollow() {
-  const { user } = await getAppSessionStrictServer()
+  const session = await getAppSessionStrictServer()
 
-  if (!user) return null;
+  if (!session.user) return null;
 
   const usersToFollow = await dbClient.user.findMany({
     where: {
       NOT: {
-        id: user.id,
+        id: session.user.id,
       },
-      // followers: {
-      //   none: {
-      //     followerId: user.id,
-      //   },
-      // },
+      followers: {
+        none: {
+          followerId: session.user.id,
+        },
+      },
     },
-    select: getUserDataSelect(user.id),
+    select: getUserDataSelect(session?.user.id),
     take: 5,
   });
+
+  console.log("usersToFollow", usersToFollow)
 
   return (
     <div className="space-y-5 rounded-2xl bg-card p-5 shadow-sm">
@@ -70,7 +71,7 @@ async function WhoToFollow() {
               </div>
             </Link>
           </UserTooltip>
-          {/* <FollowButton
+          <FollowButton
             userId={user.id}
             initialState={{
               followers: user._count.followers,
@@ -78,8 +79,8 @@ async function WhoToFollow() {
                 ({ followerId }) => followerId === user.id,
               ),
             }}
-          /> */}
-          <Button>Follow</Button>
+          />
+
         </div>
       ))}
     </div>

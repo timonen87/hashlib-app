@@ -14,6 +14,21 @@ export function getUserDataSelect(userId: string) {
     bio: true,
     email: true,
     image: true,
+    createdAt:true,
+    followers: {
+      where: {
+        followerId: userId,
+      },
+      select: {
+        followerId: true,
+      },
+    },
+    _count: {
+      select: {
+        posts: true,
+        followers: true,
+      },
+    },
 
   } satisfies Prisma.UserSelect;
 }
