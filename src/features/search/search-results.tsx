@@ -1,19 +1,18 @@
 "use client";
 
-
-import { PostsPage } from "@/entities/post/_domain/types";
-import InfiniteScrollContainer from "@/entities/post/_vm/infifinty-scroll-container";
-import Post from "@/entities/post/pub/post";
-import PostsLoadingSkeleton from "@/entities/post/ui/post-loading-skeleton";
-import kyInstance from "@/shared/lib/ky";
+import InfiniteScrollContainer from "@/components/InfiniteScrollContainer";
+import Post from "@/components/posts/Post";
+import PostsLoadingSkeleton from "@/components/posts/PostsLoadingSkeleton";
+import kyInstance from "@/lib/ky";
+import { PostsPage } from "@/lib/types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 
-interface UserPostsProps {
-  userId: string;
+interface SearchResultsProps {
+  query: string;
 }
 
-export default function UserPosts({ userId }: UserPostsProps) {
+export default function SearchResults({ query }: SearchResultsProps) {
   const {
     data,
     fetchNextPage,
@@ -22,16 +21,19 @@ export default function UserPosts({ userId }: UserPostsProps) {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["post-feed", "user-posts", userId],
-    queryFn: async ({ pageParam }) =>
-      await kyInstance
-        .get(
-          `/api/users/${userId}/posts`,
-          pageParam ? { searchParams: { cursor: pageParam } } : {},
-        )
+    queryKey: ["post-feed", "search", query],
+    queryFn: ({ pageParam }) =>
+      kyInstance
+        .get("/api/search", {
+          searchParams: {
+            q: query,
+            ...(pageParam ? { cursor: pageParam } : {}),
+          },
+        })
         .json<PostsPage>(),
     initialPageParam: null as string | null,
     getNextPageParam: (lastPage) => lastPage.nextCursor,
+    gcTime: 0,
   });
 
   const posts = data?.pages.flatMap((page) => page.posts) || [];
@@ -43,7 +45,7 @@ export default function UserPosts({ userId }: UserPostsProps) {
   if (status === "success" && !posts.length && !hasNextPage) {
     return (
       <p className="text-center text-muted-foreground">
-        This user hasn&apos;t posted anything yet.
+        No posts found for this query.
       </p>
     );
   }

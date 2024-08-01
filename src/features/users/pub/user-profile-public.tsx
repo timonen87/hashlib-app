@@ -19,10 +19,10 @@ export default async function UserProfile({ user, userId }: UserProfileProps) {
               <div className="text-muted-foreground">@{user.name}</div>
             </div>
             {/* <div>Member since {formatDate(user.createdAt, "MMM d, yyyy")}</div> */}
-            <div>Member since 24.04.24</div>
+            <div>На сайте с 24.04.24</div>
             <div className="flex items-center gap-3">
               <span>
-                Posts:{" "}
+                Посты:{" "}
                 <span className="font-semibold">
                   {/* {formatNumber(user._count.posts)} */}
                   34

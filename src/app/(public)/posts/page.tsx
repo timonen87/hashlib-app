@@ -3,6 +3,7 @@ import MyPostFeed from "@/entities/post/pub/my-post-feed";
 import { PostsFeed } from "@/entities/post/pub/post-feed";
 import { PostsList } from "@/features/posts-list/pub/posts-list";
 import { UpdateProfileForm } from "@/features/update-profile/update-profile-form";
+import TrendsSidebar from "@/features/users/trends-sidebar";
 import { Separator } from "@/shared/ui/separator";
 import { Skeleton } from "@/shared/ui/skeleton";
 import Image from "next/image";
@@ -16,7 +17,9 @@ export default function PostsPage({ params }: { params: { slug: string } }) {
         {/* <PostsList revalidatePagePath="/posts" /> */}
         {/* <PostsFeed  /> */}
         <MyPostFeed/>
+        {/* <TrendsSidebar /> */}
       </div>
+
     </main>
   );
 }

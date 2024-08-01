@@ -14,6 +14,7 @@ import { Avatar } from "@/shared/ui/avatar";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import TrendsSidebar from "@/features/users/trends-sidebar";
 
 interface PageProps {
   params: { name: string };
@@ -46,7 +47,7 @@ export default async function Page({ params: { name } }: PageProps) {
 
   const user = await getUser(name, session.user.id);
 
-  console.log(user)
+  // console.log(user)
 
   return (
     <main className="flex w-full min-w-0 gap-5 mt-5">
@@ -59,7 +60,7 @@ export default async function Page({ params: { name } }: PageProps) {
         </div>
         <UserPosts userId={user.id} />
       </div>
-      {/* <TrendsSidebar /> */}
+      <TrendsSidebar />
     </main>
   );
 }

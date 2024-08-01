@@ -9,6 +9,8 @@ import { Loader2 } from "lucide-react";
 import PostsLoadingSkeleton from "../ui/post-loading-skeleton";
 
 export default function MyPostFeed() {
+
+
   const {
     data,
     fetchNextPage,
@@ -18,8 +20,8 @@ export default function MyPostFeed() {
     status,
   } = useInfiniteQuery({
     queryKey: ["post-feed", "me"],
-    queryFn: ({ pageParam }) =>
-      kyInstance
+    queryFn: async ({ pageParam }) =>
+      await kyInstance
         .get(
           "/api/posts/me",
           pageParam ? { searchParams: { cursor: pageParam } } : {},
@@ -29,10 +31,17 @@ export default function MyPostFeed() {
     getNextPageParam: (lastPage) => lastPage.nextCursor,
   });
 
+  // } = useInfiniteQuery({
+  //   queryKey: ["post-feed", "me"],
+  //   queryFn: ({ pageParam }) => fetchProjects(pageParam),
+  //   initialPageParam: null as string | null,
+  //   getNextPageParam: (lastPage) => lastPage.nextCursor,
+  // });
+
   const posts = data?.pages.flatMap((page) => page.posts) || [];
 
   if (status === "pending") {
-    return <PostsLoadingSkeleton />
+    return <PostsLoadingSkeleton />;
   }
 
   if (status === "success" && !posts.length && !hasNextPage) {

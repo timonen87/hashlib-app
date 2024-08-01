@@ -1,9 +1,12 @@
 import { postRepository } from "@/entities/post/_repositories/post";
 import { ProfileAuthor } from "@/entities/post/ui/profile-author";
+import { getUserDataSelect } from "@/entities/user/_domain/types";
 import { UpdateProfileForm } from "@/features/update-profile/update-profile-form";
+import { dbClient } from "@/shared/lib/db";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
 export default async function PostDetail({
   params,
@@ -12,6 +15,20 @@ export default async function PostDetail({
 }) {
   const post = await postRepository.getPostBySlug(params.slug);
   if (!post) notFound();
+  // const getPost = cache(async (slug: string) => {
+  //   const post = await dbClient.post.findFirst({
+  //     where: {
+  //       slug: slug
+  //     },
+  //     include:{
+  //       user:true
+  //     }
+  //   });
+
+  //   if (!post) notFound();
+
+  //   return post;
+  // });
 
   return (
     <main className="flex flex-col vertical-main-content mx-auto dark:bg-slate-800 max-w-[900px] pt-6 pr-6">
@@ -20,7 +37,7 @@ export default async function PostDetail({
           <div className="flex flex-col w-full p-2 mb-4">
             <div className="flex w-full mt-6 article-single-title lg:prose-xl">
               <h1 className="text-6xl">
-                {post?.title}
+                {post.title}
                 {/* Проверка на палиндром. Решение и описание задачи на Python */}
               </h1>
             </div>
